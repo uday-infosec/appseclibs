@@ -7,10 +7,20 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build Hugo Site
+  deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+	  sunmodules: true
+      - name: Checkout destination
+        uses: actions/checkout@v3
+        if: github.ref == 'ref/heads/main'
+        with:
+          ref: gh-pages
+          path: built-site
+
       - name: Install Hugo
         env:
           HUGO_VERSION: 0.121.2
@@ -21,37 +31,19 @@ jobs:
           tar -xvzf hugo.tar.gz
           sudo mv hugo /usr/local/bin
 
-      - name: Checkout main branch
-        uses: actions/checkout@v3
-        with:
-          ref: main
-          path: main
-          submodules: true
-
-      - name: Checkout gh-pages branch
-        uses: actions/checkout@v2
-        with:
-          ref: gh-pages
-          path: gh-pages
-
       - name: Hugo Build
         run: cd main && hugo
 
-      - name: Copy files
-        run: cp -rf main/public/* gh-pages/
-
-      - name: Commit changes
+      - name: Deploy
+        if: github.ref == 'ref/heads/main'
         run: |
-          cd gh-pages
+          cp -R public/* $(GITHUB_WORKSPACE}/built-site/
+          cd ${GITHUB_WORKSPACE}/built-site
 
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
 
           git add -A .
 
-          if git diff-index --quiet HEAD --; then
-            echo "No changes..."
-          else
-            git commit -m "[CI] build hugo static site"
-            git push
-          fi
+          git commit -m "[CI] build hugo static site"
+          git push
