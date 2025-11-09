@@ -7,18 +7,18 @@ menu:
   - identifier: catagories
     name: Categories
     url: /categories
-    weight: 10
+    weight: 30
   - identifier: tags
     name: Tags
     url: /tags
     weight: 20
   - identifier: home
     name: Home
-    url: /
-    weight: 30
+    url: /home/
+    weight: 10
   - identifier: posts
     name: Blog
-    url: /posts/
+    url: /blogs/
     weight: 40
   - identifier: talks
     name: Talks
