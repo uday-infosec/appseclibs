@@ -13,10 +13,11 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v3
         with:
-	 submodules: true
+          submodules: true
+
       - name: Checkout destination
-        uses: actions/checkout@v3
         if: github.ref == 'refs/heads/main'
+        uses: actions/checkout@v3
         with:
           ref: gh-pages
           path: built-site
@@ -35,15 +36,13 @@ jobs:
         run: cd main && hugo
 
       - name: Deploy
-        if: github.ref == 'ref/heads/main'
+        if: github.ref == 'refs/heads/main'
         run: |
           cp -R public/* ${GITHUB_WORKSPACE}/built-site/
           cd ${GITHUB_WORKSPACE}/built-site
-
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
-
           git add -A .
-
-          git commit -m "[CI] build hugo static site"
+          git commit -m "[CI] build hugo static site" || echo "No changes to commit"
           git push
+
