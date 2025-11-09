@@ -1,4 +1,4 @@
-name: build
+name: Publish to GH Pages
 
 on:
   push:
@@ -21,8 +21,8 @@ jobs:
           tar -xvzf hugo.tar.gz
           sudo mv hugo /usr/local/bin
 
-      - name: Checkout master branch
-        uses: actions/checkout@v2
+      - name: Checkout main branch
+        uses: actions/checkout@v3
         with:
           ref: main
           path: main
