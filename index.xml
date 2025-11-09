@@ -4,18 +4,17 @@
     <title>AppSecLibs</title>
     <link>https://uday-infosec.github.io/appseclibs/</link>
     <description>Recent content on AppSecLibs</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Nov 2025 16:44:26 -0600</lastBuildDate><atom:link href="https://uday-infosec.github.io/appseclibs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Nov 2025 16:44:26 -0600</lastBuildDate>
+    <atom:link href="https://uday-infosec.github.io/appseclibs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
       <link>https://uday-infosec.github.io/appseclibs/docs/test/</link>
       <pubDate>Sat, 08 Nov 2025 16:44:26 -0600</pubDate>
-      
       <guid>https://uday-infosec.github.io/appseclibs/docs/test/</guid>
-      <description>###This is a test page
-This is a test page body</description>
+      <description>&lt;p&gt;###This is a test page&lt;/p&gt;
+&lt;p&gt;This is a test page body&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
