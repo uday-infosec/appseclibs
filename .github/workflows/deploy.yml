@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,6 +24,7 @@ jobs:
         with:
           ref: gh-pages
           path: built-site
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Hugo
         env:
@@ -29,15 +33,16 @@ jobs:
           mkdir ~/hugo
           cd ~/hugo
           curl -L "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" --output hugo.tar.gz
-          tar -C ${RUNNER_TEMP} -xvzf hugo.tar.gz hugo
+          tar -xvzf hugo.tar.gz
+          sudo mv hugo /usr/local/bin
 
       - name: Hugo Build
-        run: ${RUNNER_TEMP}/hugo
+        run: hugo -s main --minify
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         run: |
-          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
+          cp -R main/public/* ${GITHUB_WORKSPACE}/built-site/
           cd ${GITHUB_WORKSPACE}/built-site
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
