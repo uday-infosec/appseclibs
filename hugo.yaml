@@ -7,9 +7,6 @@ params:
   homeInfoParams:
     Title: "Hi there \U0001F44B"
     Content: AppSecLibs      
-  socialIcons:
-    - name: email
-      url: 'mailto:uday.bhaskar.seelamantula@gmail.com'
 menu:
   main:
   - identifier: home
