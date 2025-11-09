@@ -29,11 +29,10 @@ jobs:
           mkdir ~/hugo
           cd ~/hugo
           curl -L "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz" --output hugo.tar.gz
-          tar -xvzf hugo.tar.gz
-          sudo mv hugo /usr/local/bin
+          tar -C ${RUNNER_TEMP} -xvzf hugo.tar.gz hugo
 
       - name: Hugo Build
-        run: cd main && hugo
+        run: ${RUNNER_TEMP}/hugo
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
