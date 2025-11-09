@@ -4,27 +4,31 @@ title: AppSecLibs
 theme: PaperMod    
 menu:
   main:
-  - identifier: catagories
-    name: Categories
-    url: /categories
-    weight: 30
-  - identifier: tags
-    name: Tags
-    url: /tags
-    weight: 20
   - identifier: home
     name: Home
-    url: /home/
+    url: /home
     weight: 10
   - identifier: posts
     name: Blog
-    url: /blogs/
-    weight: 40
+    url: /blogs
+    weight: 20
   - identifier: talks
     name: Talks
-    url: /talks/
+    url: /talks
+    weight: 30
+  - identifier: notes
+    name: Notes
+    url: /notes
+    weight: 40
+  - identifier: catagories
+    name: Categories
+    url: /categories
     weight: 50
+  - identifier: tags
+    name: Tags
+    url: /tags
+    weight: 60
   - identifier: archives
     name: Archives
     url: /archives/
-    weight: 60
+    weight: 70
