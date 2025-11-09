@@ -1,4 +1,22 @@
 baseURL: "https://uday-infosec.github.io/appseclibs/"
 languageCode: en-us
-title: My New Hugo Site
+title: AppSecLibs
 theme: PaperMod
+params:
+  defaultTheme: dark
+  homeInfoParams:
+    Title: "Hi there \U0001F44B"
+    Content: AppSecLibs      
+  socialIcons:
+    - name: email
+      url: 'mailto:uday.bhaskar.seelamantula@gmail.com'
+menu:
+  main:
+  - identifier: home
+    name: Home
+    url: /
+    weight: 10
+  - identifier: posts
+    name: Blog
+    url: /posts/
+    weight: 20
