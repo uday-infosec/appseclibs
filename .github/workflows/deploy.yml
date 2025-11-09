@@ -37,12 +37,12 @@ jobs:
           sudo mv hugo /usr/local/bin
 
       - name: Hugo Build
-        run: hugo -s main --minify
+        run: hugo --minify
 
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         run: |
-          cp -R main/public/* ${GITHUB_WORKSPACE}/built-site/
+          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
           cd ${GITHUB_WORKSPACE}/built-site
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
