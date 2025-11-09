@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My New Hugo Site</title>
-    <link>https://uday-infosec.io/appseclibs/</link>
+    <link>https://uday-infosec.github.io/appseclibs/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Nov 2025 16:44:26 -0600</lastBuildDate><atom:link href="https://uday-infosec.io/appseclibs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Nov 2025 16:44:26 -0600</lastBuildDate><atom:link href="https://uday-infosec.github.io/appseclibs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>https://uday-infosec.io/appseclibs/docs/test/</link>
+      <link>https://uday-infosec.github.io/appseclibs/docs/test/</link>
       <pubDate>Sat, 08 Nov 2025 16:44:26 -0600</pubDate>
       
-      <guid>https://uday-infosec.io/appseclibs/docs/test/</guid>
+      <guid>https://uday-infosec.github.io/appseclibs/docs/test/</guid>
       <description>###This is a test page
 This is a test page body</description>
     </item>
