@@ -44,7 +44,8 @@ jobs:
         run: |
           cp -R public/* ${GITHUB_WORKSPACE}/built-site/
           cd ${GITHUB_WORKSPACE}/built-site
-          git config --local user.email "actions@github.com"
+          touch .nojekyll
+	  git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Action"
           git add -A .
           git commit -m "[CI] build hugo static site" || echo "No changes to commit"
