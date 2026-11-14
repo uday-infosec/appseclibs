@@ -1,0 +1,56 @@
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <p class="research-index">
+      {{ .Params.conference }}
+    </p>
+
+    <h1 class="post-title">{{ .Title }}</h1>
+
+    {{ with .Description }}
+    <p class="post-description">{{ . }}</p>
+    {{ end }}
+
+    <div class="talk-metadata">
+      {{ with .Params.presentation_date }}
+      <div>
+        <span>Date</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{ end }}
+
+      {{ with .Params.location }}
+      <div>
+        <span>Location</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{ end }}
+
+      {{ with .Params.venue }}
+      <div>
+        <span>Venue</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{ end }}
+
+      {{ with .Params.presentation_time }}
+      <div>
+        <span>Time</span>
+        <strong>{{ . }}</strong>
+      </div>
+      {{ end }}
+    </div>
+     {{ with .Params.event_url }}
+	<p class="talk-official-link">
+  	<a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+    	View official conference listing ↗
+  	</a>
+	</p>
+	{{ end }}
+  </header>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}
