@@ -1,0 +1,40 @@
+{{ define "main" }}
+<main class="speaking-page">
+  <header class="speaking-intro">
+    <p class="research-index">CONFERENCES / PRESENTATIONS</p>
+    <h1>{{ .Title }}</h1>
+    <div class="post-content">{{ .Content }}</div>
+  </header>
+
+  <div class="speaking-list">
+    {{ range .Pages.ByDate.Reverse }}
+    <article class="speaking-list-item">
+      <div class="speaking-date">
+        {{ .Date.Format "2006" }}
+        <span>{{ .Date.Format "Jan 02" }}</span>
+      </div>
+
+      <div class="speaking-details">
+        <p class="research-index">
+          {{ .Params.conference }}
+        </p>
+
+        <h2>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+
+        <p class="speaking-location">
+          {{ .Params.location }}
+        </p>
+
+        <p class="speaking-summary">{{ .Summary | plainify }}</p>
+
+        <a class="speaking-read" href="{{ .RelPermalink }}">
+          Read presentation summary ↗
+        </a>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</main>
+{{ end }}

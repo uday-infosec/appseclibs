@@ -333,3 +333,111 @@ html[data-theme="dark"] body .research-primary {
   background: #a78bfa;
   color: #101114;
 }
+
+/* Speaking portfolio */
+.speaking-page {
+  max-width: 920px;
+  margin: 50px auto 100px;
+}
+
+.speaking-intro h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  margin: 14px 0 25px;
+}
+
+.speaking-intro .post-content {
+  color: var(--secondary);
+}
+
+.speaking-list {
+  margin-top: 55px;
+  border-top: 1px solid var(--border);
+}
+
+.speaking-list-item {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr);
+  gap: 28px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.speaking-date {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.speaking-date span {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--secondary);
+}
+
+.speaking-details h2 {
+  font-size: clamp(22px, 3vw, 29px);
+  margin: 12px 0;
+}
+
+.speaking-details h2 a {
+  color: var(--primary);
+}
+
+.speaking-location,
+.speaking-summary {
+  color: var(--secondary);
+  line-height: 1.7;
+}
+
+.speaking-read {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--research-accent);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .speaking-list-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Individual conference presentation metadata */
+.talk-metadata {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin: 32px 0 42px;
+  padding: 26px;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.talk-metadata div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.talk-metadata span {
+  color: var(--secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.talk-metadata strong {
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .talk-metadata {
+    grid-template-columns: 1fr;
+  }
+}
