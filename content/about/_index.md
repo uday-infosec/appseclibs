@@ -1,6 +1,7 @@
 ---
 title: "About"
 description: "About Uday Bhaskar Seelamantula."
+eyebrow: "ABOUT / BACKGROUND"
 ---
 
 I'm Uday Bhaskar Seelamantula, a Principal Application Security Engineer focused on application security, AI-native security engineering, and software security research.

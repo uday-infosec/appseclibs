@@ -1,0 +1,21 @@
+{{ define "main" }}
+
+<main class="portfolio-page">
+
+  <header class="portfolio-header">
+
+    <p class="portfolio-eyebrow">
+      {{ .Params.eyebrow | default "ABOUT / BACKGROUND" }}
+    </p>
+
+    <h1 class="portfolio-page-title">{{ .Title }}</h1>
+
+  </header>
+
+  <div class="portfolio-intro post-content">
+    {{ .Content }}
+  </div>
+
+</main>
+
+{{ end }}

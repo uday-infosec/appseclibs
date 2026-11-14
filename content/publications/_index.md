@@ -1,6 +1,7 @@
 ---
 title: "Publications"
 description: "Published research, technical articles, and security engineering writing."
+eyebrow: "PUBLICATIONS / WRITING"
 ---
 
 This page collects my published technical work and research outputs in application security, AI security, and secure software engineering.
