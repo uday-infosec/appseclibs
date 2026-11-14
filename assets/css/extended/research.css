@@ -557,3 +557,34 @@ html[data-theme="dark"] body .research-primary {
     font-size: 16px;
   }
 }
+
+/* Homepage social profiles */
+.research-social {
+  margin: 22px 0 12px;
+}
+
+.research-social .social-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.research-social .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.research-social .social-icons a:hover {
+  color: var(--research-accent);
+  transform: translateY(-2px);
+}
+
+/* Speaking article content: match the page width */
+body:has(.post-single) .post-single .post-content {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: 0;
+  margin-right: 0;
+}

@@ -3,16 +3,15 @@ languageCode: en-us
 title: AppSecLibs
 theme: PaperMod
 params:
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/udayseelamantula/"
+    - name: x
+      url: "https://x.com/Uday_infosec"
   defaultTheme: dark
   disableThemeToggle: false
   profileMode:
     enabled: false
-  socialIcons: # optional
-    - name: "<platform>"
-      url: "<link>"
-    - name: "<platform 2>"
-      url: "<link2>"
-
 menu:
   main:
     - identifier: home
