@@ -1,6 +1,7 @@
 ---
 title: "Security Leadership"
 description: "Application security engineering, strategy, and community contributions."
+eyebrow: "LEADERSHIP / IMPACT"
 ---
 
 I focus on building application security capabilities that scale across engineering organizations, connecting security research with practical adoption.

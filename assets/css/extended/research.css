@@ -336,8 +336,10 @@ html[data-theme="dark"] body .research-primary {
 
 /* Speaking portfolio */
 .speaking-page {
-  max-width: 920px;
+  width: 100%;
+  max-width: 1100px;
   margin: 50px auto 100px;
+  box-sizing: border-box;
 }
 
 .speaking-intro h1 {
@@ -439,5 +441,119 @@ html[data-theme="dark"] body .research-primary {
 @media (max-width: 600px) {
   .talk-metadata {
     grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   AppSecLibs — Unified Portfolio Design
+   ========================================= */
+
+:root {
+  --main-width: 1100px;
+  --portfolio-page-width: 1100px;
+}
+
+/* Standard section pages */
+.portfolio-page {
+  width: 100%;
+  max-width: var(--portfolio-page-width);
+  margin: 50px auto 100px;
+  box-sizing: border-box;
+}
+
+/* Shared section eyebrow */
+.portfolio-eyebrow {
+  color: var(--research-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+/* Shared section headings */
+.portfolio-page-title,
+.speaking-intro h1 {
+  color: var(--primary);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin: 14px 0 25px;
+}
+
+/* Shared introduction styling */
+.portfolio-intro,
+.speaking-intro .post-content {
+  color: var(--secondary);
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.portfolio-body {
+  margin-top: 55px;
+}
+
+/* Individual presentation pages */
+.post-single {
+  width: 100%;
+  max-width: var(--portfolio-page-width);
+  margin: 50px auto 100px;
+  box-sizing: border-box;
+}
+
+.post-single .post-header {
+  max-width: 1100px;
+  margin-bottom: 35px;
+}
+
+.post-single .post-title {
+  color: var(--primary);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.post-single .post-description {
+  color: var(--secondary);
+  font-size: 19px;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+/* Comfortable reading width */
+.post-single .post-content {
+  width: 100%;
+  max-width: 850px;
+  margin-left: 0;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+/* Presentation details */
+.post-single .talk-metadata {
+  color: var(--secondary);
+  margin-top: 24px;
+  line-height: 1.8;
+}
+
+.post-single .talk-official-link {
+  margin-top: 20px;
+}
+
+/* Responsive layouts */
+@media (max-width: 768px) {
+  .portfolio-page,
+  .speaking-page,
+  .post-single {
+    margin-top: 28px;
+    margin-bottom: 60px;
+  }
+
+  .portfolio-intro,
+  .speaking-intro .post-content,
+  .post-single .post-description {
+    font-size: 16px;
   }
 }

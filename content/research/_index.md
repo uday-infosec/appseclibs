@@ -1,6 +1,7 @@
 ---
 title: "Research"
 description: "Security engineering research, experiments, and technical investigations."
+eyebrow: "RESEARCH / ENGINEERING"
 ---
 
 My work explores how application security can evolve alongside increasingly automated software development.
