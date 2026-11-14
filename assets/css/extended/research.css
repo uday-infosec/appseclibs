@@ -1,0 +1,335 @@
+/*
+ * AppSecLibs Research Portfolio
+ * PaperMod-compatible dark and light themes
+ */
+
+/* Light theme */
+:root {
+  --research-accent: #6941b5;
+  --research-card: #ffffff;
+  --research-border: #dedee6;
+  --research-text: #20212a;
+  --research-muted: #555866;
+}
+
+/* Dark theme */
+:root[data-theme="dark"] {
+  --research-accent: #a78bfa;
+  --research-card: #24252b;
+  --research-border: #383943;
+  --research-text: #f2f2f5;
+  --research-muted: #a3a5b2;
+}
+
+/* Use PaperMod's own page and header colors.
+   Do not override --theme, --primary, --secondary, etc. */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Inter, sans-serif;
+}
+
+/* Header */
+.header,
+.nav {
+  background: var(--theme);
+}
+
+.logo a,
+#menu a {
+  color: var(--primary);
+}
+
+/* Main container */
+body:has(.research-home) .main {
+  max-width: 1240px;
+}
+
+.research-home {
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 24px 0 90px;
+}
+
+/* Hero */
+.research-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr);
+  gap: 65px;
+  align-items: center;
+  padding: 75px 0 110px;
+}
+
+.research-intro {
+  min-width: 0;
+}
+
+.research-eyebrow,
+.research-index,
+.research-feature-label,
+.research-tile-number {
+  color: var(--research-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.research-hero h1 {
+  color: var(--research-text);
+  font-size: clamp(40px, 4.3vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  font-weight: 750;
+  margin: 22px 0;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.research-dot {
+  color: var(--research-accent);
+}
+
+.research-role {
+  color: var(--research-muted);
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.research-description {
+  color: var(--research-text);
+  font-size: clamp(22px, 3vw, 31px);
+  font-weight: 650;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+
+.research-summary {
+  max-width: 610px;
+  color: var(--research-muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* Buttons */
+.research-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.research-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.research-primary {
+  background: var(--research-accent);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .research-primary {
+  color: #101114;
+}
+
+.research-secondary {
+  background: transparent;
+  border: 1px solid var(--research-border);
+  color: var(--research-text);
+}
+
+.research-actions a:hover {
+  opacity: 0.85;
+}
+
+/* Portrait */
+.research-portrait {
+  width: 100%;
+  max-width: 350px;
+  min-height: 0;
+  aspect-ratio: 4 / 5;
+  align-self: center;
+  background: var(--research-card);
+  border: 1px solid var(--research-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.research-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sections */
+.research-section {
+  padding: 65px 0;
+  border-top: 1px solid var(--research-border);
+}
+
+.research-section-heading {
+  margin-bottom: 35px;
+}
+
+.research-section h2 {
+  color: var(--research-text);
+  font-size: clamp(27px, 3vw, 38px);
+  letter-spacing: -0.035em;
+  margin-top: 12px;
+}
+
+.research-section-copy,
+.research-feature p,
+.research-footer-cta p {
+  color: var(--research-muted);
+  line-height: 1.8;
+}
+
+/* Research cards */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.research-tile,
+.research-feature {
+  background: var(--research-card);
+  border: 1px solid var(--research-border);
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.research-tile h3,
+.research-feature h3 {
+  color: var(--research-text);
+  font-size: 19px;
+  margin: 18px 0 12px;
+}
+
+.research-tile p {
+  color: var(--research-muted);
+  line-height: 1.8;
+}
+
+/* Research links */
+.research-links {
+  margin-top: 30px;
+  border-top: 1px solid var(--research-border);
+}
+
+.research-links a {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--research-border);
+  color: var(--research-text);
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.research-links a span,
+.research-feature a,
+.research-footer-cta a {
+  color: var(--research-accent);
+}
+
+.research-feature h3 {
+  font-size: 25px;
+}
+
+.research-feature a,
+.research-footer-cta a {
+  display: inline-block;
+  margin-top: 22px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.research-footer-cta h2 {
+  line-height: 1.35;
+}
+
+/* Mobile */
+@media (max-width: 760px) {
+  .research-home {
+    padding-top: 0;
+  }
+
+  .research-hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 45px 0 65px;
+  }
+
+  .research-hero h1 {
+    font-size: clamp(36px, 8vw, 54px);
+    overflow-wrap: anywhere;
+  }
+
+  .research-portrait {
+    max-width: 330px;
+  }
+
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-section {
+    padding: 45px 0;
+  }
+}
+
+/* FINAL DARK MODE CORRECTION */
+
+html[data-theme="dark"] body .research-home {
+  --research-accent: #a78bfa;
+  --research-card: #24252b;
+  --research-border: #383943;
+  --research-text: #f2f2f5;
+  --research-muted: #a3a5b2;
+}
+
+html[data-theme="dark"] body .research-hero h1,
+html[data-theme="dark"] body .research-description,
+html[data-theme="dark"] body .research-section h2,
+html[data-theme="dark"] body .research-tile h3,
+html[data-theme="dark"] body .research-feature h3,
+html[data-theme="dark"] body .research-links a,
+html[data-theme="dark"] body .research-footer-cta h2 {
+  color: #f2f2f5 !important;
+}
+
+html[data-theme="dark"] body .research-role,
+html[data-theme="dark"] body .research-summary,
+html[data-theme="dark"] body .research-section-copy,
+html[data-theme="dark"] body .research-tile p,
+html[data-theme="dark"] body .research-feature p,
+html[data-theme="dark"] body .research-footer-cta p {
+  color: #a3a5b2 !important;
+}
+
+html[data-theme="dark"] body .research-tile,
+html[data-theme="dark"] body .research-feature {
+  background: #24252b !important;
+  border-color: #383943 !important;
+}
+
+html[data-theme="dark"] body .research-secondary {
+  color: #f2f2f5 !important;
+  border-color: #383943;
+}
+
+html[data-theme="dark"] body .research-primary {
+  background: #a78bfa;
+  color: #101114;
+}
