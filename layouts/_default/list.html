@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+<main class="portfolio-page">
+
+  <header class="portfolio-header">
+
+    <p class="portfolio-eyebrow">
+      {{ with .Params.eyebrow }}
+        {{ . }}
+      {{ else }}
+        APPSEC / ENGINEERING
+      {{ end }}
+    </p>
+
+    <h1 class="portfolio-page-title">{{ .Title }}</h1>
+
+  </header>
+
+  <div class="portfolio-intro post-content">
+    {{ .Content }}
+  </div>
+
+  {{ with .Pages }}
+  <div class="portfolio-body">
+    {{ range .ByDate.Reverse }}
+    <article class="portfolio-entry">
+      <h2>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </h2>
+      <p>{{ .Summary | plainify }}</p>
+    </article>
+    {{ end }}
+  </div>
+  {{ end }}
+
+</main>
+
+{{ end }}

@@ -3,52 +3,38 @@ languageCode: en-us
 title: AppSecLibs
 theme: PaperMod
 params:
+  socialIcons:
+    - name: linkedin
+      url: "https://www.linkedin.com/in/udayseelamantula/"
+    - name: x
+      url: "https://x.com/Uday_infosec"
+  defaultTheme: dark
+  disableThemeToggle: false
   profileMode:
-    enabled: true
-    title: "AppSecLibs" # optional default will be site title
-    subtitle: "A Place for AppSec Engineers"
-    imageUrl: "/images/logo.jpegs" # optional
-    imageTitle: "<title of image as alt>" # optional
-    imageWidth: 120 # custom size
-    imageHeight: 120 # custom size
-    buttons:
-      - name: Archive
-        url: "/archives"
-      - name: Github
-        url: "https://github.com/"
-
-  socialIcons: # optional
-    - name: "<platform>"
-      url: "<link>"
-    - name: "<platform 2>"
-      url: "<link2>"    
+    enabled: false
 menu:
   main:
-  - identifier: home
-    name: Home
-    url: /
-    weight: 10
-  - identifier: posts
-    name: Blog
-    url: /docs/
-    weight: 20
-  - identifier: talks
-    name: Talks
-    url: /talks
-    weight: 30
-  - identifier: notes
-    name: Notes
-    url: /notes
-    weight: 40
-  - identifier: catagories
-    name: Categories
-    url: /categories
-    weight: 50
-  - identifier: tags
-    name: Tags
-    url: /tags
-    weight: 60
-  - identifier: archives
-    name: Archives
-    url: /archives/
-    weight: 70
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+    - identifier: research
+      name: Research
+      url: /research/
+      weight: 20
+    - identifier: publications
+      name: Publications
+      url: /publications/
+      weight: 30
+    - identifier: speaking
+      name: Speaking
+      url: /speaking/
+      weight: 40
+    - identifier: leadership
+      name: Leadership
+      url: /leadership/
+      weight: 50
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 60

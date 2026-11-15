@@ -1,0 +1,119 @@
+{{ define "main" }}
+
+<div class="research-home">
+
+  <section class="research-hero">
+    <div class="research-intro">
+      <p class="research-eyebrow">APPLICATION SECURITY · RESEARCH · LEADERSHIP</p>
+
+      <h1>Uday Bhaskar<br>Seelamantula<span class="research-dot">.</span></h1>
+
+      <p class="research-role">
+        Principal Application Security Engineer
+      </p>
+
+      <p class="research-description">
+        Engineering trust in the age of AI.
+      </p>
+
+      <p class="research-summary">
+        I work at the intersection of application security,
+        AI-native security engineering, vulnerability research,
+        and secure software development. My work focuses on
+        building security systems that are practical,
+        measurable, and verifiable.
+      </p>
+
+      <div class="research-social">
+        {{ partial "social_icons.html" (dict "align" "left" "icons" site.Params.socialIcons) }}
+      </div>
+
+      <div class="research-actions">
+        <a class="research-primary" href="/research/">Explore Research</a>
+        <a class="research-secondary" href="/speaking/">Conference Talks ↗</a>
+      </div>
+    </div>
+
+    <div class="research-portrait">
+      <img src="/images/profile.png"
+           alt="Uday Bhaskar Seelamantula"
+           onerror="this.style.display='none';this.parentElement.classList.add('portrait-empty')">
+    </div>
+  </section>
+
+  <section class="research-section">
+    <div class="research-section-heading">
+      <span class="research-index">01 / FOCUS</span>
+      <h2>Research Interests</h2>
+    </div>
+
+    <div class="research-grid">
+      <article class="research-tile">
+        <span class="research-tile-number">01</span>
+        <h3>AI-Native Application Security</h3>
+        <p>Security agents, automated vulnerability discovery, remediation, and trustworthy AI-assisted development.</p>
+      </article>
+
+      <article class="research-tile">
+        <span class="research-tile-number">02</span>
+        <h3>Verification & Agent Reliability</h3>
+        <p>Evidence preservation, completeness, reproducibility, and accountable security automation.</p>
+      </article>
+
+      <article class="research-tile">
+        <span class="research-tile-number">03</span>
+        <h3>Software Supply Chain</h3>
+        <p>Dependency security, CI/CD hardening, software provenance, and secure development ecosystems.</p>
+      </article>
+
+      <article class="research-tile">
+        <span class="research-tile-number">04</span>
+        <h3>Vulnerability Research</h3>
+        <p>Application security testing, threat modeling, fuzzing, and practical offensive security techniques.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="research-section">
+    <div class="research-section-heading">
+      <span class="research-index">02 / WRITING</span>
+      <h2>Research & Writing</h2>
+    </div>
+
+    <p class="research-section-copy">
+      Technical research, engineering observations, and lessons
+      from building application security programs and tools.
+    </p>
+
+    <div class="research-links">
+      <a href="/research/">Research <span>↗</span></a>
+      <a href="/publications/">Publications <span>↗</span></a>
+      <a href="/docs/">Technical Documentation <span>↗</span></a>
+      <a href="/notes/">Notes <span>↗</span></a>
+    </div>
+  </section>
+
+  <section class="research-section">
+    <div class="research-section-heading">
+      <span class="research-index">03 / SPEAKING</span>
+      <h2>Speaking & Community</h2>
+    </div>
+
+    <div class="research-feature">
+      <span class="research-feature-label">OWASP GLOBAL APPSEC USA · 2026</span>
+      <h3>When Nobody Wrote the Code</h3>
+      <p>Engineering Lessons from Building AI-Native Application Security</p>
+      <a href="/speaking/">View speaking portfolio ↗</a>
+    </div>
+  </section>
+
+  <section class="research-section research-footer-cta">
+    <span class="research-index">04 / CONNECT</span>
+    <h2>Security is an engineering discipline.<br>Trust must be earned.</h2>
+    <p>Exploring the intersection of security research, engineering leadership, and responsible automation.</p>
+    <a href="/about/">More about me ↗</a>
+  </section>
+
+</div>
+
+{{ end }}
