@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Speaking on AppSecLibs</title>
+    <link>https://appseclibs.com/speaking/</link>
+    <description>Recent content in Speaking on AppSecLibs</description>
+    <generator>Hugo -- 0.146.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://appseclibs.com/speaking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security</title>
+      <link>https://appseclibs.com/speaking/when-nobody-wrote-the-code/</link>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/speaking/when-nobody-wrote-the-code/</guid>
+      <description>What happens when AI agents generate, review, and fix software faster than we can verify it?</description>
+    </item>
+    <item>
+      <title>Desktop Applications: Yes, We Still Exist in the Era of AI!!!</title>
+      <link>https://appseclibs.com/speaking/defcon-33-desktop-applications/</link>
+      <pubDate>Sat, 09 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/speaking/defcon-33-desktop-applications/</guid>
+      <description>Exploring the intersection of AI-specific threats, desktop exploitation, and traditional software vulnerabilities.</description>
+    </item>
+    <item>
+      <title>Desktop Applications: Yes, We Still Exist in the Era of AI!!!</title>
+      <link>https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/</link>
+      <pubDate>Tue, 05 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/</guid>
+      <description>Why desktop application security still matters as AI becomes part of traditional software.</description>
+    </item>
+  </channel>
+</rss>

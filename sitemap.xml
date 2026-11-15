@@ -2,8 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://appseclibs.com/tags/ai-security/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/application-security/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://appseclibs.com/</loc>
-    <lastmod>2025-11-08T16:44:26-06:00</lastmod>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/research/ai-native-appsec/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/research/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/security-agents/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/verification/</loc>
+    <lastmod>2026-11-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/agentic-ai/</loc>
+    <lastmod>2026-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/owasp/</loc>
+    <lastmod>2026-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/security-engineering/</loc>
+    <lastmod>2026-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/speaking/</loc>
+    <lastmod>2026-11-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/speaking/when-nobody-wrote-the-code/</loc>
+    <lastmod>2026-11-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://appseclibs.com/docs/</loc>
     <lastmod>2025-11-08T16:44:26-06:00</lastmod>
@@ -11,10 +47,29 @@
     <loc>https://appseclibs.com/docs/test/</loc>
     <lastmod>2025-11-08T16:44:26-06:00</lastmod>
   </url><url>
+    <loc>https://appseclibs.com/speaking/defcon-33-desktop-applications/</loc>
+    <lastmod>2025-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/desktop-security/</loc>
+    <lastmod>2025-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/fuzzing/</loc>
+    <lastmod>2025-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/tags/memory-corruption/</loc>
+    <lastmod>2025-08-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/</loc>
+    <lastmod>2025-08-05T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://appseclibs.com/about/</loc>
+  </url><url>
     <loc>https://appseclibs.com/archives/</loc>
   </url><url>
     <loc>https://appseclibs.com/categories/</loc>
   </url><url>
-    <loc>https://appseclibs.com/tags/</loc>
+    <loc>https://appseclibs.com/publications/</loc>
+  </url><url>
+    <loc>https://appseclibs.com/leadership/</loc>
   </url>
 </urlset>

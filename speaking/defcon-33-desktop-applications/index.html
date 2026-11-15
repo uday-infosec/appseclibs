@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Desktop Applications: Yes, We Still Exist in the Era of AI!!! | AppSecLibs</title>
+<meta name="keywords" content="Desktop Security, AI Security, Memory Corruption, Fuzzing, Application Security">
+<meta name="description" content="Exploring the intersection of AI-specific threats, desktop exploitation, and traditional software vulnerabilities.">
+<meta name="author" content="">
+<link rel="canonical" href="https://appseclibs.com/speaking/defcon-33-desktop-applications/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.469e787b26f351119fdade676205e9c46af9f11b365f957cf1873b29358bcd59.css" integrity="sha256-Rp54eybzURGf2t5nYgXpxGr58Rs2X5V88Yc7KTWLzVk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://appseclibs.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://appseclibs.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://appseclibs.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://appseclibs.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://appseclibs.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://appseclibs.com/speaking/defcon-33-desktop-applications/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://appseclibs.com/speaking/defcon-33-desktop-applications/">
+  <meta property="og:site_name" content="AppSecLibs">
+  <meta property="og:title" content="Desktop Applications: Yes, We Still Exist in the Era of AI!!!">
+  <meta property="og:description" content="Exploring the intersection of AI-specific threats, desktop exploitation, and traditional software vulnerabilities.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="speaking">
+    <meta property="article:published_time" content="2025-08-09T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-09T00:00:00+00:00">
+    <meta property="article:tag" content="Desktop Security">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Memory Corruption">
+    <meta property="article:tag" content="Fuzzing">
+    <meta property="article:tag" content="Application Security">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Desktop Applications: Yes, We Still Exist in the Era of AI!!!">
+<meta name="twitter:description" content="Exploring the intersection of AI-specific threats, desktop exploitation, and traditional software vulnerabilities.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Speaking",
+      "item": "https://appseclibs.com/speaking/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Desktop Applications: Yes, We Still Exist in the Era of AI!!!",
+      "item": "https://appseclibs.com/speaking/defcon-33-desktop-applications/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Desktop Applications: Yes, We Still Exist in the Era of AI!!!",
+  "name": "Desktop Applications: Yes, We Still Exist in the Era of AI!!!",
+  "description": "Exploring the intersection of AI-specific threats, desktop exploitation, and traditional software vulnerabilities.",
+  "keywords": [
+    "Desktop Security", "AI Security", "Memory Corruption", "Fuzzing", "Application Security"
+  ],
+  "articleBody": "At DEF CON 33 AppSec Village, I presented Desktop Applications: Yes, We Still Exist in the Era of AI!!!\nThe premise was intentionally provocative.\nAs the security industry focuses on AI-native applications, cloud platforms, and autonomous agents, desktop applications can appear to be yesterday’s problem.\nBut desktop software still powers some of our most important engineering and creative workflows.\nAnd now we’re integrating AI into these applications.\nThat creates an interesting security question: what happens when new AI attack surfaces meet old software vulnerabilities?\nThe old attack surface is still here Desktop applications frequently contain large native-code components, complex parsers, privileged integrations, and extensible plugin architectures.\nThese are environments where memory corruption, unsafe file handling, privilege escalation, and insecure permissions can have serious consequences.\nAdding an AI assistant doesn’t remove those weaknesses.\nInstead, AI can introduce new ways for untrusted content or generated actions to reach existing components.\nThis is the intersection I wanted to explore.\nPrompt injection is only part of the problem One demonstration examined prompt injection and model poisoning concepts in local AI applications.\nPrompt injection matters because content that should be treated as data can attempt to influence the behavior of an AI system.\nBut the larger security question is what that system can do after being influenced.\nCan it invoke an application capability? Interact with a plugin? Generate content that is subsequently trusted? Reach sensitive local resources?\nThe risk depends not only on the model, but also on the permissions, interfaces, and trust boundaries surrounding it.\nThat is why I believe AI threat modeling must extend beyond the prompt and into the application architecture.\nWhen AI-generated input reaches a native parser The second major theme involved memory corruption and file-format exploitation.\nMany desktop applications depend on parsers written in native languages such as C++.\nThese components may process complex files supplied by users, extensions, external systems, or increasingly, AI-enabled workflows.\nAn AI-generated file is still untrusted input.\nIf it reaches a vulnerable parser, familiar classes of memory-safety problems can still occur.\nThe presentation explored fuzzing an AI-enhanced file-parsing workflow, including malformed inputs, crashes, and a demonstration centered on memory corruption and code execution.\nThe important lesson was not that AI creates an entirely new category of memory corruption.\nIt was that AI can change how existing vulnerable code is reached and exercised.\nModern AI features do not compensate for unsafe foundations.\nModel files introduce another trust boundary Another part of the presentation examined the security implications of model serialization formats.\nNot all model files have the same execution characteristics.\nFor example, Python pickle-based formats can execute code during unsafe deserialization, whereas formats designed primarily for tensor storage have different security properties.\nThe broader lesson is to treat model artifacts as part of the software supply chain.\nWhere did the model originate? How was it distributed? Is its integrity verified? What happens when the application loads it?\nThese are application security questions, not merely machine learning implementation details.\nFuzzing needs to follow the complete workflow I also discussed modern fuzzing approaches for desktop applications, including libFuzzer, AFL++, and techniques for exercising file formats, protocols, and plugin interfaces.\nAs AI changes how users interact with software, our test strategies need to follow those new paths.\nIt isn’t enough to validate the model’s output in isolation.\nWe need to understand what happens when that output is consumed by native code, forwarded to another component, or used to trigger an operation.\nThis is where traditional vulnerability research and AI security engineering become closely connected.\nThreat modeling the intersection A useful threat model for an AI-enhanced desktop application should examine both established and emerging trust boundaries.\nThat includes untrusted files, local privileges, plugin interfaces, model inputs and outputs, model update paths, and automation workflows.\nIt should also consider what actions an AI component is permitted to initiate and how those actions are validated.\nA model may behave as expected while the surrounding application remains vulnerable.\nConversely, a well-secured native component may still be exposed through an overly permissive AI integration.\nBoth sides matter.\nMy takeaway from DEF CON The central message I wanted to leave with the AppSec Village audience was that desktop security deserves renewed attention.\nAI introduces new threats, but it also magnifies existing weaknesses.\nThe answer isn’t to abandon traditional application security practices in favor of an entirely separate AI security discipline.\nIt’s to bring them together.\nContinue fuzzing. Continue threat modeling. Continue hardening parsers, plugins, and local privileges.\nThen extend those practices to the new capabilities and trust boundaries introduced by AI.\nAI doesn’t replace old bugs. It compounds them.\nAnd desktop applications remain an important part of the application security landscape.\nThank you to DEF CON and AppSec Village for the opportunity to share this work and discuss the intersection of AI security and traditional desktop exploitation.\nThe views expressed here are my own and do not necessarily represent those of my employer.\n",
+  "wordCount" : "818",
+  "inLanguage": "en",
+  "datePublished": "2025-08-09T00:00:00Z",
+  "dateModified": "2025-08-09T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://appseclibs.com/speaking/defcon-33-desktop-applications/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AppSecLibs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://appseclibs.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://appseclibs.com/" accesskey="h" title="AppSecLibs (Alt + H)">AppSecLibs</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://appseclibs.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/research/" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/speaking/" title="Speaking">
+                    <span>Speaking</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/leadership/" title="Leadership">
+                    <span>Leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <p class="research-index">
+      DEF CON 33 — AppSec Village
+    </p>
+
+    <h1 class="post-title">Desktop Applications: Yes, We Still Exist in the Era of AI!!!</h1>
+
+    
+    <p class="post-description">Exploring the intersection of AI-specific threats, desktop exploitation, and traditional software vulnerabilities.</p>
+    
+
+    <div class="talk-metadata">
+      
+      <div>
+        <span>Date</span>
+        <strong>August 9, 2025</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Location</span>
+        <strong>Las Vegas, Nevada, USA</strong>
+      </div>
+      
+
+      
+
+      
+      <div>
+        <span>Time</span>
+        <strong>4:00 PM – 4:30 PM PDT</strong>
+      </div>
+      
+    </div>
+     
+	<p class="talk-official-link">
+  	<a href="https://appsecvillage.com/events/dc-2025/desktop-applications-yes-we-still-exist-in-the-era-of-ai-945671" target="_blank" rel="noopener noreferrer">
+    	View official conference listing ↗
+  	</a>
+	</p>
+	
+  </header>
+
+  <div class="post-content">
+    <p>At <strong>DEF CON 33 AppSec Village</strong>, I presented <em>Desktop Applications: Yes, We Still Exist in the Era of AI!!!</em></p>
+<p>The premise was intentionally provocative.</p>
+<p>As the security industry focuses on AI-native applications, cloud platforms, and autonomous agents, desktop applications can appear to be yesterday&rsquo;s problem.</p>
+<p>But desktop software still powers some of our most important engineering and creative workflows.</p>
+<p>And now we&rsquo;re integrating AI into these applications.</p>
+<p>That creates an interesting security question: <strong>what happens when new AI attack surfaces meet old software vulnerabilities?</strong></p>
+<h2 id="the-old-attack-surface-is-still-here">The old attack surface is still here</h2>
+<p>Desktop applications frequently contain large native-code components, complex parsers, privileged integrations, and extensible plugin architectures.</p>
+<p>These are environments where memory corruption, unsafe file handling, privilege escalation, and insecure permissions can have serious consequences.</p>
+<p>Adding an AI assistant doesn&rsquo;t remove those weaknesses.</p>
+<p>Instead, AI can introduce new ways for untrusted content or generated actions to reach existing components.</p>
+<p>This is the intersection I wanted to explore.</p>
+<h2 id="prompt-injection-is-only-part-of-the-problem">Prompt injection is only part of the problem</h2>
+<p>One demonstration examined prompt injection and model poisoning concepts in local AI applications.</p>
+<p>Prompt injection matters because content that should be treated as data can attempt to influence the behavior of an AI system.</p>
+<p>But the larger security question is what that system can do after being influenced.</p>
+<p>Can it invoke an application capability? Interact with a plugin? Generate content that is subsequently trusted? Reach sensitive local resources?</p>
+<p>The risk depends not only on the model, but also on the permissions, interfaces, and trust boundaries surrounding it.</p>
+<p>That is why I believe AI threat modeling must extend beyond the prompt and into the application architecture.</p>
+<h2 id="when-ai-generated-input-reaches-a-native-parser">When AI-generated input reaches a native parser</h2>
+<p>The second major theme involved memory corruption and file-format exploitation.</p>
+<p>Many desktop applications depend on parsers written in native languages such as C++.</p>
+<p>These components may process complex files supplied by users, extensions, external systems, or increasingly, AI-enabled workflows.</p>
+<p>An AI-generated file is still untrusted input.</p>
+<p>If it reaches a vulnerable parser, familiar classes of memory-safety problems can still occur.</p>
+<p>The presentation explored fuzzing an AI-enhanced file-parsing workflow, including malformed inputs, crashes, and a demonstration centered on memory corruption and code execution.</p>
+<p>The important lesson was not that AI creates an entirely new category of memory corruption.</p>
+<p>It was that AI can change how existing vulnerable code is reached and exercised.</p>
+<p><strong>Modern AI features do not compensate for unsafe foundations.</strong></p>
+<h2 id="model-files-introduce-another-trust-boundary">Model files introduce another trust boundary</h2>
+<p>Another part of the presentation examined the security implications of model serialization formats.</p>
+<p>Not all model files have the same execution characteristics.</p>
+<p>For example, Python pickle-based formats can execute code during unsafe deserialization, whereas formats designed primarily for tensor storage have different security properties.</p>
+<p>The broader lesson is to treat model artifacts as part of the software supply chain.</p>
+<p>Where did the model originate? How was it distributed? Is its integrity verified? What happens when the application loads it?</p>
+<p>These are application security questions, not merely machine learning implementation details.</p>
+<h2 id="fuzzing-needs-to-follow-the-complete-workflow">Fuzzing needs to follow the complete workflow</h2>
+<p>I also discussed modern fuzzing approaches for desktop applications, including libFuzzer, AFL++, and techniques for exercising file formats, protocols, and plugin interfaces.</p>
+<p>As AI changes how users interact with software, our test strategies need to follow those new paths.</p>
+<p>It isn&rsquo;t enough to validate the model&rsquo;s output in isolation.</p>
+<p>We need to understand what happens when that output is consumed by native code, forwarded to another component, or used to trigger an operation.</p>
+<p>This is where traditional vulnerability research and AI security engineering become closely connected.</p>
+<h2 id="threat-modeling-the-intersection">Threat modeling the intersection</h2>
+<p>A useful threat model for an AI-enhanced desktop application should examine both established and emerging trust boundaries.</p>
+<p>That includes untrusted files, local privileges, plugin interfaces, model inputs and outputs, model update paths, and automation workflows.</p>
+<p>It should also consider what actions an AI component is permitted to initiate and how those actions are validated.</p>
+<p>A model may behave as expected while the surrounding application remains vulnerable.</p>
+<p>Conversely, a well-secured native component may still be exposed through an overly permissive AI integration.</p>
+<p>Both sides matter.</p>
+<h2 id="my-takeaway-from-def-con">My takeaway from DEF CON</h2>
+<p>The central message I wanted to leave with the AppSec Village audience was that desktop security deserves renewed attention.</p>
+<p>AI introduces new threats, but it also magnifies existing weaknesses.</p>
+<p>The answer isn&rsquo;t to abandon traditional application security practices in favor of an entirely separate AI security discipline.</p>
+<p>It&rsquo;s to bring them together.</p>
+<p>Continue fuzzing. Continue threat modeling. Continue hardening parsers, plugins, and local privileges.</p>
+<p>Then extend those practices to the new capabilities and trust boundaries introduced by AI.</p>
+<p><strong>AI doesn&rsquo;t replace old bugs. It compounds them.</strong></p>
+<p>And desktop applications remain an important part of the application security landscape.</p>
+<hr>
+<p>Thank you to DEF CON and AppSec Village for the opportunity to share this work and discuss the intersection of AI security and traditional desktop exploitation.</p>
+<p><em>The views expressed here are my own and do not necessarily represent those of my employer.</em></p>
+
+  </div>
+</article>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://appseclibs.com/">AppSecLibs</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

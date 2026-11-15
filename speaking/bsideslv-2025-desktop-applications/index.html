@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Desktop Applications: Yes, We Still Exist in the Era of AI!!! | AppSecLibs</title>
+<meta name="keywords" content="Desktop Security, AI Security, Fuzzing, Application Security">
+<meta name="description" content="Why desktop application security still matters as AI becomes part of traditional software.">
+<meta name="author" content="">
+<link rel="canonical" href="https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.469e787b26f351119fdade676205e9c46af9f11b365f957cf1873b29358bcd59.css" integrity="sha256-Rp54eybzURGf2t5nYgXpxGr58Rs2X5V88Yc7KTWLzVk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://appseclibs.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://appseclibs.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://appseclibs.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://appseclibs.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://appseclibs.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/">
+  <meta property="og:site_name" content="AppSecLibs">
+  <meta property="og:title" content="Desktop Applications: Yes, We Still Exist in the Era of AI!!!">
+  <meta property="og:description" content="Why desktop application security still matters as AI becomes part of traditional software.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="speaking">
+    <meta property="article:published_time" content="2025-08-05T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-08-05T00:00:00+00:00">
+    <meta property="article:tag" content="Desktop Security">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Fuzzing">
+    <meta property="article:tag" content="Application Security">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Desktop Applications: Yes, We Still Exist in the Era of AI!!!">
+<meta name="twitter:description" content="Why desktop application security still matters as AI becomes part of traditional software.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Speaking",
+      "item": "https://appseclibs.com/speaking/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Desktop Applications: Yes, We Still Exist in the Era of AI!!!",
+      "item": "https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Desktop Applications: Yes, We Still Exist in the Era of AI!!!",
+  "name": "Desktop Applications: Yes, We Still Exist in the Era of AI!!!",
+  "description": "Why desktop application security still matters as AI becomes part of traditional software.",
+  "keywords": [
+    "Desktop Security", "AI Security", "Fuzzing", "Application Security"
+  ],
+  "articleBody": "When conversations turn to modern application security, the focus is often on cloud infrastructure, APIs, and increasingly, AI agents.\nBut there is an entire category of software that rarely receives the same attention: desktop applications.\nAt BSides Las Vegas 2025, I presented Desktop Applications: Yes, We Still Exist in the Era of AI!!! to bring that conversation back into focus.\nThe question I wanted to explore was straightforward: what happens when we introduce AI capabilities into desktop applications that already have complex security challenges?\nDesktop applications never disappeared Desktop software continues to power engineering, design, creative workflows, financial modeling, and other specialized environments.\nThese applications frequently handle complex files, integrate with operating-system resources, support extensions, and interact with local data.\nTheir security challenges are not new.\nMemory corruption, privilege escalation, excessive filesystem permissions, unsafe parsing, and configuration weaknesses have been part of desktop application security for years.\nWhat has changed is the functionality we’re introducing into these environments.\nAI adds capability—and attack surface AI is increasingly being integrated into traditional software through local language models, intelligent assistants, predictive interfaces, and offline inference.\nThese features create opportunities for productivity and automation.\nThey also introduce new trust boundaries.\nAn AI component may interpret untrusted content, generate instructions, interact with plugins, or produce files that another component subsequently processes.\nThis creates an important intersection between AI-specific threats and conventional software vulnerabilities.\nAI doesn’t replace old bugs. It can compound them.\nDemonstrating the intersection One part of the presentation explored prompt injection in AI-enabled applications.\nWhen an application uses a model to interpret content or instructions, an attacker may attempt to influence the model through data that should not carry authority.\nThe security concern extends beyond an incorrect model response. It becomes more significant when the model can influence application behavior or interact with privileged capabilities.\nThe second demonstration focused on file-format parsing and memory corruption.\nDesktop applications often process complex, externally supplied files. Introducing AI-generated content does not automatically make those parsers safer.\nMalformed input can still expose weaknesses in the underlying implementation.\nThe lesson I wanted to emphasize was that adding an intelligent interface does not eliminate the risks in the software beneath it.\nFuzzing still matters Fuzzing remains one of the most practical techniques for finding vulnerabilities in desktop software.\nThe presentation discussed approaches and tools including libFuzzer, AFL++, and Peach Fuzzer, along with targets such as file formats, protocols, and plugin interfaces.\nAI-enabled workflows can expand the kinds of inputs that reach these components.\nThat makes it important to revisit existing fuzzing strategies rather than assume that previously tested interfaces remain adequately covered.\nThe objective is not simply to test the AI model. It is to test the complete path from untrusted input to application behavior.\nThreat modeling across old and new boundaries Traditional desktop threat models often focus on local privileges, files, processes, plugins, and operating-system interfaces.\nAI introduces additional considerations: model inputs, generated actions, inference behavior, model updates, and interactions between AI components and legacy modules.\nThese concerns need to be evaluated together.\nAn AI feature may be secure in isolation while exposing an unsafe operation elsewhere in the application.\nSecurity engineering must account for the system as a whole.\nWhat I wanted attendees to take away My message at BSidesLV was that desktop security is not obsolete.\nIt is evolving.\nWe should continue investing in established practices—fuzzing, secure parsing, least privilege, threat modeling, and secure development—while extending those practices to AI-enabled workflows.\nFor me, the most important takeaway is simple:\nAI isn’t secure if it’s built on unsafe foundations.\nThe arrival of AI makes desktop application security more relevant, not less.\nThank you to the BSides Las Vegas community for the opportunity to share this perspective and contribute to the discussion.\nThe views expressed here are my own and do not necessarily represent those of my employer.\n",
+  "wordCount" : "640",
+  "inLanguage": "en",
+  "datePublished": "2025-08-05T00:00:00Z",
+  "dateModified": "2025-08-05T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://appseclibs.com/speaking/bsideslv-2025-desktop-applications/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AppSecLibs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://appseclibs.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://appseclibs.com/" accesskey="h" title="AppSecLibs (Alt + H)">AppSecLibs</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://appseclibs.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/research/" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/speaking/" title="Speaking">
+                    <span>Speaking</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/leadership/" title="Leadership">
+                    <span>Leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <p class="research-index">
+      BSides Las Vegas 2025
+    </p>
+
+    <h1 class="post-title">Desktop Applications: Yes, We Still Exist in the Era of AI!!!</h1>
+
+    
+    <p class="post-description">Why desktop application security still matters as AI becomes part of traditional software.</p>
+    
+
+    <div class="talk-metadata">
+      
+      <div>
+        <span>Date</span>
+        <strong>August 5, 2025</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Location</span>
+        <strong>Las Vegas, Nevada, USA</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Venue</span>
+        <strong>Tuscany Suites &amp; Casino — Firenze</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Time</span>
+        <strong>10:30 AM – 10:55 AM PDT</strong>
+      </div>
+      
+    </div>
+     
+	<p class="talk-official-link">
+  	<a href="https://archive.bsideslv.org/2025/talks" target="_blank" rel="noopener noreferrer">
+    	View official conference listing ↗
+  	</a>
+	</p>
+	
+  </header>
+
+  <div class="post-content">
+    <p>When conversations turn to modern application security, the focus is often on cloud infrastructure, APIs, and increasingly, AI agents.</p>
+<p>But there is an entire category of software that rarely receives the same attention: desktop applications.</p>
+<p>At <strong>BSides Las Vegas 2025</strong>, I presented <em>Desktop Applications: Yes, We Still Exist in the Era of AI!!!</em> to bring that conversation back into focus.</p>
+<p>The question I wanted to explore was straightforward: <strong>what happens when we introduce AI capabilities into desktop applications that already have complex security challenges?</strong></p>
+<h2 id="desktop-applications-never-disappeared">Desktop applications never disappeared</h2>
+<p>Desktop software continues to power engineering, design, creative workflows, financial modeling, and other specialized environments.</p>
+<p>These applications frequently handle complex files, integrate with operating-system resources, support extensions, and interact with local data.</p>
+<p>Their security challenges are not new.</p>
+<p>Memory corruption, privilege escalation, excessive filesystem permissions, unsafe parsing, and configuration weaknesses have been part of desktop application security for years.</p>
+<p>What has changed is the functionality we&rsquo;re introducing into these environments.</p>
+<h2 id="ai-adds-capabilityand-attack-surface">AI adds capability—and attack surface</h2>
+<p>AI is increasingly being integrated into traditional software through local language models, intelligent assistants, predictive interfaces, and offline inference.</p>
+<p>These features create opportunities for productivity and automation.</p>
+<p>They also introduce new trust boundaries.</p>
+<p>An AI component may interpret untrusted content, generate instructions, interact with plugins, or produce files that another component subsequently processes.</p>
+<p>This creates an important intersection between AI-specific threats and conventional software vulnerabilities.</p>
+<p><strong>AI doesn&rsquo;t replace old bugs. It can compound them.</strong></p>
+<h2 id="demonstrating-the-intersection">Demonstrating the intersection</h2>
+<p>One part of the presentation explored prompt injection in AI-enabled applications.</p>
+<p>When an application uses a model to interpret content or instructions, an attacker may attempt to influence the model through data that should not carry authority.</p>
+<p>The security concern extends beyond an incorrect model response. It becomes more significant when the model can influence application behavior or interact with privileged capabilities.</p>
+<p>The second demonstration focused on file-format parsing and memory corruption.</p>
+<p>Desktop applications often process complex, externally supplied files. Introducing AI-generated content does not automatically make those parsers safer.</p>
+<p>Malformed input can still expose weaknesses in the underlying implementation.</p>
+<p>The lesson I wanted to emphasize was that adding an intelligent interface does not eliminate the risks in the software beneath it.</p>
+<h2 id="fuzzing-still-matters">Fuzzing still matters</h2>
+<p>Fuzzing remains one of the most practical techniques for finding vulnerabilities in desktop software.</p>
+<p>The presentation discussed approaches and tools including libFuzzer, AFL++, and Peach Fuzzer, along with targets such as file formats, protocols, and plugin interfaces.</p>
+<p>AI-enabled workflows can expand the kinds of inputs that reach these components.</p>
+<p>That makes it important to revisit existing fuzzing strategies rather than assume that previously tested interfaces remain adequately covered.</p>
+<p>The objective is not simply to test the AI model. It is to test the complete path from untrusted input to application behavior.</p>
+<h2 id="threat-modeling-across-old-and-new-boundaries">Threat modeling across old and new boundaries</h2>
+<p>Traditional desktop threat models often focus on local privileges, files, processes, plugins, and operating-system interfaces.</p>
+<p>AI introduces additional considerations: model inputs, generated actions, inference behavior, model updates, and interactions between AI components and legacy modules.</p>
+<p>These concerns need to be evaluated together.</p>
+<p>An AI feature may be secure in isolation while exposing an unsafe operation elsewhere in the application.</p>
+<p>Security engineering must account for the system as a whole.</p>
+<h2 id="what-i-wanted-attendees-to-take-away">What I wanted attendees to take away</h2>
+<p>My message at BSidesLV was that desktop security is not obsolete.</p>
+<p>It is evolving.</p>
+<p>We should continue investing in established practices—fuzzing, secure parsing, least privilege, threat modeling, and secure development—while extending those practices to AI-enabled workflows.</p>
+<p>For me, the most important takeaway is simple:</p>
+<p><strong>AI isn&rsquo;t secure if it&rsquo;s built on unsafe foundations.</strong></p>
+<p>The arrival of AI makes desktop application security more relevant, not less.</p>
+<hr>
+<p>Thank you to the BSides Las Vegas community for the opportunity to share this perspective and contribute to the discussion.</p>
+<p><em>The views expressed here are my own and do not necessarily represent those of my employer.</em></p>
+
+  </div>
+</article>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://appseclibs.com/">AppSecLibs</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

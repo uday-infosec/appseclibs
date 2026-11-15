@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Engineering Verifiable AI-Native Application Security | AppSecLibs</title>
+<meta name="keywords" content="AI Security, Application Security, Security Agents, Verification">
+<meta name="description" content="Research into security agent reliability, vulnerability discovery, remediation, and verifiable automation.">
+<meta name="author" content="">
+<link rel="canonical" href="https://appseclibs.com/research/ai-native-appsec/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.469e787b26f351119fdade676205e9c46af9f11b365f957cf1873b29358bcd59.css" integrity="sha256-Rp54eybzURGf2t5nYgXpxGr58Rs2X5V88Yc7KTWLzVk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://appseclibs.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://appseclibs.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://appseclibs.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://appseclibs.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://appseclibs.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://appseclibs.com/research/ai-native-appsec/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://appseclibs.com/research/ai-native-appsec/">
+  <meta property="og:site_name" content="AppSecLibs">
+  <meta property="og:title" content="Engineering Verifiable AI-Native Application Security">
+  <meta property="og:description" content="Research into security agent reliability, vulnerability discovery, remediation, and verifiable automation.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="research">
+    <meta property="article:published_time" content="2026-11-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-11-14T00:00:00+00:00">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Application Security">
+    <meta property="article:tag" content="Security Agents">
+    <meta property="article:tag" content="Verification">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Engineering Verifiable AI-Native Application Security">
+<meta name="twitter:description" content="Research into security agent reliability, vulnerability discovery, remediation, and verifiable automation.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Research",
+      "item": "https://appseclibs.com/research/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Engineering Verifiable AI-Native Application Security",
+      "item": "https://appseclibs.com/research/ai-native-appsec/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Engineering Verifiable AI-Native Application Security",
+  "name": "Engineering Verifiable AI-Native Application Security",
+  "description": "Research into security agent reliability, vulnerability discovery, remediation, and verifiable automation.",
+  "keywords": [
+    "AI Security", "Application Security", "Security Agents", "Verification"
+  ],
+  "articleBody": "Overview AI agents are increasingly capable of discovering vulnerabilities, reviewing code, and proposing security fixes.\nBut capability alone does not establish trust.\nThis ongoing engineering research investigates how AI-native application security systems can produce results that are complete, reproducible, reviewable, and supported by evidence.\nResearch Questions How can security findings be preserved across multiple agent executions? How can we detect incomplete analysis caused by context limitations? How should conflicting agent recommendations be evaluated? How can we verify that a proposed remediation actually addresses a vulnerability? How can security automation integrate into developer workflows without creating excessive review overhead? Engineering Observations Finding Preservation Multi-agent orchestration can lose findings between stages of analysis.\nA reliable workflow needs durable evidence and explicit tracking of findings throughout execution.\nContext Exhaustion Large repositories and multi-repository analysis can exceed the effective context available to an agent.\nThis can result in missed vulnerabilities or incomplete analysis.\nRemediation Reliability An agent-generated fix may appear correct while leaving the underlying vulnerability unresolved or introducing regressions.\nRemediation therefore requires independent validation.\nAgent Disagreement Different agents may recommend conflicting solutions to the same security issue.\nThese disagreements should be preserved and evaluated rather than silently resolved.\nEngineering Directions The following are approaches under investigation, not claims of completed validation:\nPersistent finding and evidence records Deterministic completeness checks Explicit coverage reporting Independent remediation verification Human review for consequential security decisions Research Status Ongoing engineering research\nThis page documents research questions, observed failure modes, and engineering approaches. Formal evaluation results and reproducible technical artifacts will be added as they become available.\nRelated Work Research overview Publications Conference presentations ",
+  "wordCount" : "265",
+  "inLanguage": "en",
+  "datePublished": "2026-11-14T00:00:00Z",
+  "dateModified": "2026-11-14T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://appseclibs.com/research/ai-native-appsec/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AppSecLibs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://appseclibs.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://appseclibs.com/" accesskey="h" title="AppSecLibs (Alt + H)">AppSecLibs</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://appseclibs.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/research/" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/speaking/" title="Speaking">
+                    <span>Speaking</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/leadership/" title="Leadership">
+                    <span>Leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Engineering Verifiable AI-Native Application Security
+    </h1>
+    <div class="post-description">
+      Research into security agent reliability, vulnerability discovery, remediation, and verifiable automation.
+    </div>
+    <div class="post-meta"><span title='2026-11-14 00:00:00 +0000 UTC'>November 14, 2026</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h2>
+<p>AI agents are increasingly capable of discovering vulnerabilities, reviewing code, and proposing security fixes.</p>
+<p>But capability alone does not establish trust.</p>
+<p>This ongoing engineering research investigates how AI-native application security systems can produce results that are complete, reproducible, reviewable, and supported by evidence.</p>
+<h2 id="research-questions">Research Questions<a hidden class="anchor" aria-hidden="true" href="#research-questions">#</a></h2>
+<ol>
+<li>How can security findings be preserved across multiple agent executions?</li>
+<li>How can we detect incomplete analysis caused by context limitations?</li>
+<li>How should conflicting agent recommendations be evaluated?</li>
+<li>How can we verify that a proposed remediation actually addresses a vulnerability?</li>
+<li>How can security automation integrate into developer workflows without creating excessive review overhead?</li>
+</ol>
+<h2 id="engineering-observations">Engineering Observations<a hidden class="anchor" aria-hidden="true" href="#engineering-observations">#</a></h2>
+<h3 id="finding-preservation">Finding Preservation<a hidden class="anchor" aria-hidden="true" href="#finding-preservation">#</a></h3>
+<p>Multi-agent orchestration can lose findings between stages of analysis.</p>
+<p>A reliable workflow needs durable evidence and explicit tracking of findings throughout execution.</p>
+<h3 id="context-exhaustion">Context Exhaustion<a hidden class="anchor" aria-hidden="true" href="#context-exhaustion">#</a></h3>
+<p>Large repositories and multi-repository analysis can exceed the effective context available to an agent.</p>
+<p>This can result in missed vulnerabilities or incomplete analysis.</p>
+<h3 id="remediation-reliability">Remediation Reliability<a hidden class="anchor" aria-hidden="true" href="#remediation-reliability">#</a></h3>
+<p>An agent-generated fix may appear correct while leaving the underlying vulnerability unresolved or introducing regressions.</p>
+<p>Remediation therefore requires independent validation.</p>
+<h3 id="agent-disagreement">Agent Disagreement<a hidden class="anchor" aria-hidden="true" href="#agent-disagreement">#</a></h3>
+<p>Different agents may recommend conflicting solutions to the same security issue.</p>
+<p>These disagreements should be preserved and evaluated rather than silently resolved.</p>
+<h2 id="engineering-directions">Engineering Directions<a hidden class="anchor" aria-hidden="true" href="#engineering-directions">#</a></h2>
+<p>The following are approaches under investigation, not claims of completed validation:</p>
+<ul>
+<li>Persistent finding and evidence records</li>
+<li>Deterministic completeness checks</li>
+<li>Explicit coverage reporting</li>
+<li>Independent remediation verification</li>
+<li>Human review for consequential security decisions</li>
+</ul>
+<h2 id="research-status">Research Status<a hidden class="anchor" aria-hidden="true" href="#research-status">#</a></h2>
+<p><strong>Ongoing engineering research</strong></p>
+<p>This page documents research questions, observed failure modes, and engineering approaches. Formal evaluation results and reproducible technical artifacts will be added as they become available.</p>
+<h2 id="related-work">Related Work<a hidden class="anchor" aria-hidden="true" href="#related-work">#</a></h2>
+<ul>
+<li><a href="/research/">Research overview</a></li>
+<li><a href="/publications/">Publications</a></li>
+<li><a href="/speaking/">Conference presentations</a></li>
+</ul>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://appseclibs.com/tags/ai-security/">AI Security</a></li>
+      <li><a href="https://appseclibs.com/tags/application-security/">Application Security</a></li>
+      <li><a href="https://appseclibs.com/tags/security-agents/">Security Agents</a></li>
+      <li><a href="https://appseclibs.com/tags/verification/">Verification</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://appseclibs.com/">AppSecLibs</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

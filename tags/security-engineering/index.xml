@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Security Engineering on AppSecLibs</title>
+    <link>https://appseclibs.com/tags/security-engineering/</link>
+    <description>Recent content in Security Engineering on AppSecLibs</description>
+    <generator>Hugo -- 0.146.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://appseclibs.com/tags/security-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security</title>
+      <link>https://appseclibs.com/speaking/when-nobody-wrote-the-code/</link>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/speaking/when-nobody-wrote-the-code/</guid>
+      <description>What happens when AI agents generate, review, and fix software faster than we can verify it?</description>
+    </item>
+  </channel>
+</rss>

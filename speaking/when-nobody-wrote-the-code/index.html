@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="dark">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security | AppSecLibs</title>
+<meta name="keywords" content="AI Security, Application Security, Agentic AI, Security Engineering, OWASP">
+<meta name="description" content="What happens when AI agents generate, review, and fix software faster than we can verify it?">
+<meta name="author" content="">
+<link rel="canonical" href="https://appseclibs.com/speaking/when-nobody-wrote-the-code/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.469e787b26f351119fdade676205e9c46af9f11b365f957cf1873b29358bcd59.css" integrity="sha256-Rp54eybzURGf2t5nYgXpxGr58Rs2X5V88Yc7KTWLzVk=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://appseclibs.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://appseclibs.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://appseclibs.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://appseclibs.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://appseclibs.com/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://appseclibs.com/speaking/when-nobody-wrote-the-code/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><meta property="og:url" content="https://appseclibs.com/speaking/when-nobody-wrote-the-code/">
+  <meta property="og:site_name" content="AppSecLibs">
+  <meta property="og:title" content="When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security">
+  <meta property="og:description" content="What happens when AI agents generate, review, and fix software faster than we can verify it?">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="speaking">
+    <meta property="article:published_time" content="2026-11-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-11-06T00:00:00+00:00">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Application Security">
+    <meta property="article:tag" content="Agentic AI">
+    <meta property="article:tag" content="Security Engineering">
+    <meta property="article:tag" content="OWASP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security">
+<meta name="twitter:description" content="What happens when AI agents generate, review, and fix software faster than we can verify it?">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Speaking",
+      "item": "https://appseclibs.com/speaking/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security",
+      "item": "https://appseclibs.com/speaking/when-nobody-wrote-the-code/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security",
+  "name": "When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security",
+  "description": "What happens when AI agents generate, review, and fix software faster than we can verify it?",
+  "keywords": [
+    "AI Security", "Application Security", "Agentic AI", "Security Engineering", "OWASP"
+  ],
+  "articleBody": "Earlier this month, I presented at OWASP Global AppSec USA 2026 in San Francisco. My talk, When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security, explored what happens when AI agents increasingly generate, review, and fix software—and what it takes to trust the outcome.\nThis is a written reflection on the ideas behind the presentation, the engineering challenges we encountered, and the lessons that shaped how I think about the future of application security.\nA pull request with no author Picture a pull request where a scanner found the issue and a model wrote the fix. A second model reviewed it, and a third generated the tests. The description says “Fixed with high confidence.”\nThen it lands in front of one human, whose job is to approve it.\nThat raises the question at the center of this discussion:\nWhen nobody wrote the code, who is the author of record?\nThe assumption that quietly broke Every application security program runs on a few assumptions we rarely say out loud.\nWriting software is expensive. Earlier fixes cost less. And perhaps most importantly, verifying a change is cheaper than producing it.\nFor a long time, those assumptions held reasonably well. A reviewer could read in an hour what took an engineer a week to write, and review capacity roughly kept pace with code volume.\nAI changes that equation.\nProducing code and fixes is becoming fast and inexpensive, but knowing whether a change is safe isn’t getting proportionally cheaper.\nEvery generated change still needs answers:\nDid it do what we intended? Did it introduce unintended behavior? Did it actually eliminate the vulnerability? Where did the change come from? What evidence supports the decision to accept it? The bottleneck is moving from writing code to verifying it.\nAnd most application security programs weren’t designed for that shift.\nWhat we learned from three experiments As we experimented with AI-native application security workflows, three challenges stood out.\n1. AI-generated remediation creates review debt One of the most compelling applications of AI in AppSec is automated remediation.\nAn agent identifies a vulnerability, understands the surrounding code, proposes a fix, and potentially opens a pull request.\nThe speed is impressive.\nBut generating a fix is not the same as accepting a fix.\nEvery proposed change still requires some level of validation. The remediation may address the reported vulnerability while introducing regressions, overlooking related attack paths, or misunderstanding the application’s security assumptions.\nAs remediation becomes faster, the volume of changes requiring verification can increase.\nWe risk moving the vulnerability backlog into a review backlog.\nThe queue moves. The risk doesn’t automatically disappear.\n2. AI reviewing AI produces agreement, not proof A natural response is to introduce another agent.\nIf one agent generates a fix, why not have a second agent review it?\nWe explored multi-agent workflows where different agents contribute to vulnerability discovery, analysis, and remediation.\nThe challenge is that agreement between agents does not necessarily establish correctness.\nThey may share similar assumptions, reasoning patterns, or incomplete context.\nThis concern extends beyond security engineering. A 2025 research paper examining correlated errors among language models highlights how models can produce similar incorrect answers.\nIn security, this distinction matters enormously.\nA remediation agent may confidently propose a fix. A reviewing agent may confidently approve it. Yet both may have overlooked the same authorization requirement or an alternative exploitation path.\nAgreement is a signal. It isn’t proof.\n3. Multiple AI workflows can collide Consider an environment where different agents are independently responsible for security remediation, refactoring, and test generation.\nEach workflow may appear correct when evaluated in isolation.\nBut software systems are not collections of isolated changes.\nA security fix may depend on assumptions that a subsequent refactor changes. Generated tests may validate implementation details without protecting the underlying security requirement.\nThe resulting failure may not exist in any single change.\nIt can emerge from the interaction between otherwise reasonable changes.\nThis is why local correctness cannot be the only measure of success for autonomous software engineering.\nWhat proof actually looks like If model confidence and agent agreement aren’t sufficient, what should we rely on?\nMy answer is increasingly centered on executable evidence.\nIn software testing, an oracle is a mechanism for determining whether a system’s behavior is correct.\nFor security remediation, that means establishing an independently verifiable check that demonstrates the vulnerability before the fix and validates the expected security behavior afterward.\nThe order matters.\nFirst, reproduce the vulnerability.\nThen establish a test that fails on the vulnerable implementation.\nOnly after that should an agent attempt remediation.\nIf a supposed security regression test passes on the vulnerable implementation, it hasn’t demonstrated that it can detect the original security failure.\nThe fix must then earn its passing result.\nAnd ideally, verification should extend beyond the exact payload or execution path that originally exposed the issue.\nA fix may block one exploit while leaving related variants accessible through a different endpoint, object reference, or input representation.\n“Fixed with high confidence” is a claim. A passing security regression test is evidence.\nEven that evidence has limits, but it gives us something concrete to evaluate and improve.\nShift Left isn’t dead. It’s checking the wrong unit. Traditional application security programs rely on established practices:\nThreat modeling during design Static analysis during development Security checks in CI/CD pipelines Dynamic testing before release Human review of consequential changes These practices remain valuable.\nThe problem is that AI-generated changes can introduce new design decisions without passing through an explicit design phase.\nImagine a service where tenant isolation is enforced through a particular authorization boundary.\nAn agent introduces a bulk export endpoint while addressing a performance requirement.\nThe implementation looks reasonable, but it accidentally bypasses the expected tenant restriction.\nStatic analysis may not recognize the missing authorization requirement. A reviewer may see an otherwise clean diff. Dynamic testing may exercise only a single tenant.\nEach security control can operate as designed while the application still violates an essential security property.\nThis is especially important for authorization vulnerabilities, where correctness depends on application-specific rules rather than recognizable vulnerable code patterns.\nThe OWASP Top 10 and OWASP API Security Top 10 both emphasize the importance of broken access control and authorization failures.\nMy takeaway is not that we should abandon existing security gates.\nWe should extend them with verification of the security invariants those gates are intended to protect.\nAn invariant is a rule that must remain true regardless of how the implementation evolves.\nFor example:\nA user must never be able to access resources belonging to another tenant without explicit authorization.\nThat requirement should remain enforceable whether the implementation is written by a developer, generated by an agent, or modified through a series of automated changes.\nThe security objective stays constant even when the code changes.\nSeven engineering patterns for AI-native application security The broader lesson from these experiments is that trustworthy AI-native AppSec requires engineering patterns, not simply more capable models.\nI organized the ideas into seven patterns.\n1. Evidence over Confidence AI-generated findings and fixes should be supported by independently evaluable evidence.\nA confidence score can help prioritize investigation, but it should not substitute for proof that the intended security property holds.\n2. Verification before Remediation Establish how to reproduce and verify a vulnerability before attempting to fix it.\nThis creates a baseline against which remediation can be evaluated.\nIt also reduces the risk of accepting a plausible-looking change that doesn’t resolve the original issue.\n3. Intent over Implementation Security review should focus on the properties that must remain true, not solely on the lines of code that changed.\nAs implementation becomes increasingly automated, preserving architectural intent and security invariants becomes more important.\n4. Human Approval over Human Review Humans cannot meaningfully inspect unlimited volumes of generated code.\nWe need to make human involvement more effective by presenting the relevant security context, verification evidence, residual uncertainty, and consequences of accepting a change.\nThe goal is not to remove human accountability.\nIt is to give humans better evidence for making decisions.\n5. Security Memory over Repeated Analysis Security agents need durable context.\nFindings, assumptions, architectural decisions, previous verification results, and known limitations should survive individual executions.\nWithout that continuity, agents repeatedly rediscover information, lose context, or make decisions without understanding previous security conclusions.\n6. Provenance as Security Evidence We should be able to reconstruct how an automated security decision was reached.\nThat includes what triggered the analysis, what evidence was considered, which changes were proposed, what verification was performed, and who or what approved the outcome.\nIf a decision cannot be reconstructed, it becomes difficult to audit, investigate, or govern.\n7. Governance through Measurable Trust Trust should not be represented by a single model-generated score.\nInstead, it should emerge from measurable criteria appropriate to the action being performed.\nFor example, automatically suggesting a fix and automatically merging a security-sensitive change should require different levels of assurance.\nThe greater the potential consequence, the stronger the evidence and approval requirements should be.\nCan an agent write the verification oracle? This is an important question.\nIf humans must manually write every security verification test, the approach may struggle to scale alongside AI-generated code.\nAgents can help generate verification tests, but the design needs safeguards against self-validation.\nOne approach is to separate the responsibilities of generating a fix and generating the checks that evaluate it.\nThe verification logic should be derived from the security requirement rather than simply mirroring the proposed implementation.\nIt should demonstrate failure on the vulnerable version before passing on the corrected version.\nAnd the remediation agent should not be able to silently weaken the checks used to evaluate its own work.\nAdditional tests can be withheld from the fixing agent to help identify solutions that only satisfy the visible test cases.\nThis changes where human expertise is applied.\nInstead of reviewing hundreds of lines of generated implementation code without sufficient context, a security engineer can focus on the security requirement, the verification strategy, and the evidence supporting the outcome.\nThat is a much more promising use of human judgment.\nWhere I think teams should start Adopting these ideas doesn’t necessarily require rebuilding an entire application security program.\nI would start with three practical steps.\nThis week: Establish one executable security oracle.\nChoose a security finding with a proposed automated remediation.\nCreate a verification check that reproduces the vulnerability and fails on the original implementation.\nThen evaluate whether the fix actually satisfies that check.\nNext month: Preserve remediation evidence.\nCapture the original finding, proposed change, verification results, relevant context, and approval decision.\nEven a structured evidence file attached to a pull request is a useful starting point.\nNext quarter: Define assurance requirements for automated actions.\nDetermine which activities can be automated with minimal oversight and which require stronger evidence or explicit human approval.\nBase those decisions on consequence, uncertainty, and verification quality rather than model confidence alone.\nThe author of record Let’s return to the question that started this discussion.\nWhen nobody wrote the code, who is the author of record?\nIt isn’t the model. A model doesn’t carry organizational accountability.\nAnd simply assigning responsibility to the last person who clicked Approve doesn’t solve the underlying verification problem.\nAccountability must remain with the people and organizations governing the system, supported by evidence that makes their decisions meaningful.\nThe larger shift is from trusting how confidently software was produced to establishing why its behavior should be trusted.\nAI can make code abundant. Trust remains engineered.\nWhen nobody wrote the code, evidence becomes the foundation of trust.\nThank you to OWASP and everyone who attended, asked thoughtful questions, and continued the conversation afterward.\nI’m particularly interested in how other security engineering teams are approaching agent reliability, independent verification, and developer trust as AI becomes more deeply integrated into software development.\nIf you’re working on similar problems, I’d love to connect and exchange ideas.\nThe views expressed here are my own and do not necessarily represent those of my employer.\n",
+  "wordCount" : "1989",
+  "inLanguage": "en",
+  "datePublished": "2026-11-06T00:00:00Z",
+  "dateModified": "2026-11-06T00:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://appseclibs.com/speaking/when-nobody-wrote-the-code/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AppSecLibs",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://appseclibs.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://appseclibs.com/" accesskey="h" title="AppSecLibs (Alt + H)">AppSecLibs</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://appseclibs.com/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/research/" title="Research">
+                    <span>Research</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/speaking/" title="Speaking">
+                    <span>Speaking</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/leadership/" title="Leadership">
+                    <span>Leadership</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://appseclibs.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<article class="post-single">
+  <header class="post-header">
+    <p class="research-index">
+      OWASP Global AppSec USA 2026
+    </p>
+
+    <h1 class="post-title">When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security</h1>
+
+    
+    <p class="post-description">What happens when AI agents generate, review, and fix software faster than we can verify it?</p>
+    
+
+    <div class="talk-metadata">
+      
+      <div>
+        <span>Date</span>
+        <strong>November 6, 2026</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Location</span>
+        <strong>San Francisco, California, USA</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Venue</span>
+        <strong>Grand Ballroom B, Street Level</strong>
+      </div>
+      
+
+      
+      <div>
+        <span>Time</span>
+        <strong>2:15 PM – 3:00 PM PST</strong>
+      </div>
+      
+    </div>
+     
+  </header>
+
+  <div class="post-content">
+    <p>Earlier this month, I presented at <strong>OWASP Global AppSec USA 2026 in San Francisco</strong>. My talk, <em>When Nobody Wrote the Code: Engineering Lessons from Building AI-Native Application Security</em>, explored what happens when AI agents increasingly generate, review, and fix software—and what it takes to trust the outcome.</p>
+<p>This is a written reflection on the ideas behind the presentation, the engineering challenges we encountered, and the lessons that shaped how I think about the future of application security.</p>
+<h2 id="a-pull-request-with-no-author">A pull request with no author</h2>
+<p>Picture a pull request where a scanner found the issue and a model wrote the fix. A second model reviewed it, and a third generated the tests. The description says &ldquo;Fixed with high confidence.&rdquo;</p>
+<p>Then it lands in front of one human, whose job is to approve it.</p>
+<p>That raises the question at the center of this discussion:</p>
+<p><strong>When nobody wrote the code, who is the author of record?</strong></p>
+<h2 id="the-assumption-that-quietly-broke">The assumption that quietly broke</h2>
+<p>Every application security program runs on a few assumptions we rarely say out loud.</p>
+<p>Writing software is expensive. Earlier fixes cost less. And perhaps most importantly, verifying a change is cheaper than producing it.</p>
+<p>For a long time, those assumptions held reasonably well. A reviewer could read in an hour what took an engineer a week to write, and review capacity roughly kept pace with code volume.</p>
+<p>AI changes that equation.</p>
+<p>Producing code and fixes is becoming fast and inexpensive, but knowing whether a change is safe isn&rsquo;t getting proportionally cheaper.</p>
+<p>Every generated change still needs answers:</p>
+<ul>
+<li>Did it do what we intended?</li>
+<li>Did it introduce unintended behavior?</li>
+<li>Did it actually eliminate the vulnerability?</li>
+<li>Where did the change come from?</li>
+<li>What evidence supports the decision to accept it?</li>
+</ul>
+<p>The bottleneck is moving from writing code to verifying it.</p>
+<p>And most application security programs weren&rsquo;t designed for that shift.</p>
+<h2 id="what-we-learned-from-three-experiments">What we learned from three experiments</h2>
+<p>As we experimented with AI-native application security workflows, three challenges stood out.</p>
+<h3 id="1-ai-generated-remediation-creates-review-debt">1. AI-generated remediation creates review debt</h3>
+<p>One of the most compelling applications of AI in AppSec is automated remediation.</p>
+<p>An agent identifies a vulnerability, understands the surrounding code, proposes a fix, and potentially opens a pull request.</p>
+<p>The speed is impressive.</p>
+<p>But generating a fix is not the same as accepting a fix.</p>
+<p>Every proposed change still requires some level of validation. The remediation may address the reported vulnerability while introducing regressions, overlooking related attack paths, or misunderstanding the application&rsquo;s security assumptions.</p>
+<p>As remediation becomes faster, the volume of changes requiring verification can increase.</p>
+<p>We risk moving the vulnerability backlog into a review backlog.</p>
+<p><strong>The queue moves. The risk doesn&rsquo;t automatically disappear.</strong></p>
+<h3 id="2-ai-reviewing-ai-produces-agreement-not-proof">2. AI reviewing AI produces agreement, not proof</h3>
+<p>A natural response is to introduce another agent.</p>
+<p>If one agent generates a fix, why not have a second agent review it?</p>
+<p>We explored multi-agent workflows where different agents contribute to vulnerability discovery, analysis, and remediation.</p>
+<p>The challenge is that agreement between agents does not necessarily establish correctness.</p>
+<p>They may share similar assumptions, reasoning patterns, or incomplete context.</p>
+<p>This concern extends beyond security engineering. A <a href="https://arxiv.org/abs/2506.07962">2025 research paper examining correlated errors among language models</a> highlights how models can produce similar incorrect answers.</p>
+<p>In security, this distinction matters enormously.</p>
+<p>A remediation agent may confidently propose a fix. A reviewing agent may confidently approve it. Yet both may have overlooked the same authorization requirement or an alternative exploitation path.</p>
+<p><strong>Agreement is a signal. It isn&rsquo;t proof.</strong></p>
+<h3 id="3-multiple-ai-workflows-can-collide">3. Multiple AI workflows can collide</h3>
+<p>Consider an environment where different agents are independently responsible for security remediation, refactoring, and test generation.</p>
+<p>Each workflow may appear correct when evaluated in isolation.</p>
+<p>But software systems are not collections of isolated changes.</p>
+<p>A security fix may depend on assumptions that a subsequent refactor changes. Generated tests may validate implementation details without protecting the underlying security requirement.</p>
+<p>The resulting failure may not exist in any single change.</p>
+<p>It can emerge from the interaction between otherwise reasonable changes.</p>
+<p>This is why local correctness cannot be the only measure of success for autonomous software engineering.</p>
+<h2 id="what-proof-actually-looks-like">What proof actually looks like</h2>
+<p>If model confidence and agent agreement aren&rsquo;t sufficient, what should we rely on?</p>
+<p>My answer is increasingly centered on <strong>executable evidence</strong>.</p>
+<p>In software testing, an <em>oracle</em> is a mechanism for determining whether a system&rsquo;s behavior is correct.</p>
+<p>For security remediation, that means establishing an independently verifiable check that demonstrates the vulnerability before the fix and validates the expected security behavior afterward.</p>
+<p>The order matters.</p>
+<p>First, reproduce the vulnerability.</p>
+<p>Then establish a test that fails on the vulnerable implementation.</p>
+<p>Only after that should an agent attempt remediation.</p>
+<p>If a supposed security regression test passes on the vulnerable implementation, it hasn&rsquo;t demonstrated that it can detect the original security failure.</p>
+<p>The fix must then earn its passing result.</p>
+<p>And ideally, verification should extend beyond the exact payload or execution path that originally exposed the issue.</p>
+<p>A fix may block one exploit while leaving related variants accessible through a different endpoint, object reference, or input representation.</p>
+<p><strong>&ldquo;Fixed with high confidence&rdquo; is a claim. A passing security regression test is evidence.</strong></p>
+<p>Even that evidence has limits, but it gives us something concrete to evaluate and improve.</p>
+<h2 id="shift-left-isnt-dead-its-checking-the-wrong-unit">Shift Left isn&rsquo;t dead. It&rsquo;s checking the wrong unit.</h2>
+<p>Traditional application security programs rely on established practices:</p>
+<ul>
+<li>Threat modeling during design</li>
+<li>Static analysis during development</li>
+<li>Security checks in CI/CD pipelines</li>
+<li>Dynamic testing before release</li>
+<li>Human review of consequential changes</li>
+</ul>
+<p>These practices remain valuable.</p>
+<p>The problem is that AI-generated changes can introduce new design decisions without passing through an explicit design phase.</p>
+<p>Imagine a service where tenant isolation is enforced through a particular authorization boundary.</p>
+<p>An agent introduces a bulk export endpoint while addressing a performance requirement.</p>
+<p>The implementation looks reasonable, but it accidentally bypasses the expected tenant restriction.</p>
+<p>Static analysis may not recognize the missing authorization requirement. A reviewer may see an otherwise clean diff. Dynamic testing may exercise only a single tenant.</p>
+<p>Each security control can operate as designed while the application still violates an essential security property.</p>
+<p>This is especially important for authorization vulnerabilities, where correctness depends on application-specific rules rather than recognizable vulnerable code patterns.</p>
+<p>The <a href="https://owasp.org/Top10/">OWASP Top 10</a> and <a href="https://owasp.org/API-Security/">OWASP API Security Top 10</a> both emphasize the importance of broken access control and authorization failures.</p>
+<p>My takeaway is not that we should abandon existing security gates.</p>
+<p>We should extend them with verification of the <strong>security invariants</strong> those gates are intended to protect.</p>
+<p>An invariant is a rule that must remain true regardless of how the implementation evolves.</p>
+<p>For example:</p>
+<blockquote>
+<p>A user must never be able to access resources belonging to another tenant without explicit authorization.</p></blockquote>
+<p>That requirement should remain enforceable whether the implementation is written by a developer, generated by an agent, or modified through a series of automated changes.</p>
+<p>The security objective stays constant even when the code changes.</p>
+<h2 id="seven-engineering-patterns-for-ai-native-application-security">Seven engineering patterns for AI-native application security</h2>
+<p>The broader lesson from these experiments is that trustworthy AI-native AppSec requires engineering patterns, not simply more capable models.</p>
+<p>I organized the ideas into seven patterns.</p>
+<h3 id="1-evidence-over-confidence">1. Evidence over Confidence</h3>
+<p>AI-generated findings and fixes should be supported by independently evaluable evidence.</p>
+<p>A confidence score can help prioritize investigation, but it should not substitute for proof that the intended security property holds.</p>
+<h3 id="2-verification-before-remediation">2. Verification before Remediation</h3>
+<p>Establish how to reproduce and verify a vulnerability before attempting to fix it.</p>
+<p>This creates a baseline against which remediation can be evaluated.</p>
+<p>It also reduces the risk of accepting a plausible-looking change that doesn&rsquo;t resolve the original issue.</p>
+<h3 id="3-intent-over-implementation">3. Intent over Implementation</h3>
+<p>Security review should focus on the properties that must remain true, not solely on the lines of code that changed.</p>
+<p>As implementation becomes increasingly automated, preserving architectural intent and security invariants becomes more important.</p>
+<h3 id="4-human-approval-over-human-review">4. Human Approval over Human Review</h3>
+<p>Humans cannot meaningfully inspect unlimited volumes of generated code.</p>
+<p>We need to make human involvement more effective by presenting the relevant security context, verification evidence, residual uncertainty, and consequences of accepting a change.</p>
+<p>The goal is not to remove human accountability.</p>
+<p>It is to give humans better evidence for making decisions.</p>
+<h3 id="5-security-memory-over-repeated-analysis">5. Security Memory over Repeated Analysis</h3>
+<p>Security agents need durable context.</p>
+<p>Findings, assumptions, architectural decisions, previous verification results, and known limitations should survive individual executions.</p>
+<p>Without that continuity, agents repeatedly rediscover information, lose context, or make decisions without understanding previous security conclusions.</p>
+<h3 id="6-provenance-as-security-evidence">6. Provenance as Security Evidence</h3>
+<p>We should be able to reconstruct how an automated security decision was reached.</p>
+<p>That includes what triggered the analysis, what evidence was considered, which changes were proposed, what verification was performed, and who or what approved the outcome.</p>
+<p>If a decision cannot be reconstructed, it becomes difficult to audit, investigate, or govern.</p>
+<h3 id="7-governance-through-measurable-trust">7. Governance through Measurable Trust</h3>
+<p>Trust should not be represented by a single model-generated score.</p>
+<p>Instead, it should emerge from measurable criteria appropriate to the action being performed.</p>
+<p>For example, automatically suggesting a fix and automatically merging a security-sensitive change should require different levels of assurance.</p>
+<p>The greater the potential consequence, the stronger the evidence and approval requirements should be.</p>
+<h2 id="can-an-agent-write-the-verification-oracle">Can an agent write the verification oracle?</h2>
+<p>This is an important question.</p>
+<p>If humans must manually write every security verification test, the approach may struggle to scale alongside AI-generated code.</p>
+<p>Agents can help generate verification tests, but the design needs safeguards against self-validation.</p>
+<p>One approach is to separate the responsibilities of generating a fix and generating the checks that evaluate it.</p>
+<p>The verification logic should be derived from the security requirement rather than simply mirroring the proposed implementation.</p>
+<p>It should demonstrate failure on the vulnerable version before passing on the corrected version.</p>
+<p>And the remediation agent should not be able to silently weaken the checks used to evaluate its own work.</p>
+<p>Additional tests can be withheld from the fixing agent to help identify solutions that only satisfy the visible test cases.</p>
+<p>This changes where human expertise is applied.</p>
+<p>Instead of reviewing hundreds of lines of generated implementation code without sufficient context, a security engineer can focus on the security requirement, the verification strategy, and the evidence supporting the outcome.</p>
+<p>That is a much more promising use of human judgment.</p>
+<h2 id="where-i-think-teams-should-start">Where I think teams should start</h2>
+<p>Adopting these ideas doesn&rsquo;t necessarily require rebuilding an entire application security program.</p>
+<p>I would start with three practical steps.</p>
+<p><strong>This week: Establish one executable security oracle.</strong></p>
+<p>Choose a security finding with a proposed automated remediation.</p>
+<p>Create a verification check that reproduces the vulnerability and fails on the original implementation.</p>
+<p>Then evaluate whether the fix actually satisfies that check.</p>
+<p><strong>Next month: Preserve remediation evidence.</strong></p>
+<p>Capture the original finding, proposed change, verification results, relevant context, and approval decision.</p>
+<p>Even a structured evidence file attached to a pull request is a useful starting point.</p>
+<p><strong>Next quarter: Define assurance requirements for automated actions.</strong></p>
+<p>Determine which activities can be automated with minimal oversight and which require stronger evidence or explicit human approval.</p>
+<p>Base those decisions on consequence, uncertainty, and verification quality rather than model confidence alone.</p>
+<h2 id="the-author-of-record">The author of record</h2>
+<p>Let&rsquo;s return to the question that started this discussion.</p>
+<p>When nobody wrote the code, who is the author of record?</p>
+<p>It isn&rsquo;t the model. A model doesn&rsquo;t carry organizational accountability.</p>
+<p>And simply assigning responsibility to the last person who clicked Approve doesn&rsquo;t solve the underlying verification problem.</p>
+<p>Accountability must remain with the people and organizations governing the system, supported by evidence that makes their decisions meaningful.</p>
+<p>The larger shift is from trusting how confidently software was produced to establishing why its behavior should be trusted.</p>
+<p><strong>AI can make code abundant. Trust remains engineered.</strong></p>
+<p>When nobody wrote the code, evidence becomes the foundation of trust.</p>
+<hr>
+<p>Thank you to OWASP and everyone who attended, asked thoughtful questions, and continued the conversation afterward.</p>
+<p>I&rsquo;m particularly interested in how other security engineering teams are approaching agent reliability, independent verification, and developer trust as AI becomes more deeply integrated into software development.</p>
+<p>If you&rsquo;re working on similar problems, I&rsquo;d love to connect and exchange ideas.</p>
+<p><em>The views expressed here are my own and do not necessarily represent those of my employer.</em></p>
+
+  </div>
+</article>
+
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="https://appseclibs.com/">AppSecLibs</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

@@ -6,6 +6,77 @@
     <description>Recent content in Tags on AppSecLibs</description>
     <generator>Hugo -- 0.146.0</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 14 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://appseclibs.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Security</title>
+      <link>https://appseclibs.com/tags/ai-security/</link>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/ai-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Application Security</title>
+      <link>https://appseclibs.com/tags/application-security/</link>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/application-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security Agents</title>
+      <link>https://appseclibs.com/tags/security-agents/</link>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/security-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Verification</title>
+      <link>https://appseclibs.com/tags/verification/</link>
+      <pubDate>Sat, 14 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/verification/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agentic AI</title>
+      <link>https://appseclibs.com/tags/agentic-ai/</link>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/agentic-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>OWASP</title>
+      <link>https://appseclibs.com/tags/owasp/</link>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/owasp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security Engineering</title>
+      <link>https://appseclibs.com/tags/security-engineering/</link>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/security-engineering/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Desktop Security</title>
+      <link>https://appseclibs.com/tags/desktop-security/</link>
+      <pubDate>Sat, 09 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/desktop-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fuzzing</title>
+      <link>https://appseclibs.com/tags/fuzzing/</link>
+      <pubDate>Sat, 09 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/fuzzing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Memory Corruption</title>
+      <link>https://appseclibs.com/tags/memory-corruption/</link>
+      <pubDate>Sat, 09 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://appseclibs.com/tags/memory-corruption/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
